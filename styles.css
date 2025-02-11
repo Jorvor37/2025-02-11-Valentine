@@ -1,0 +1,71 @@
+body {
+  background-color: #ffebef;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div {
+  font-size: 2em;
+  color: #d6336c;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+button {
+  display: inline-block;
+  background-color: #ff477e;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.5em;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+button:hover {
+  background-color: #d6336c;
+  transform: scale(1.1);
+}
+
+/* Creating the falling roses effect */
+@keyframes fall {
+  from { transform: translateY(-10vh) rotate(0deg); }
+  to { transform: translateY(100vh) rotate(360deg); }
+}
+
+.rose {
+  position: absolute;
+  top: -10vh;
+  width: 40px;
+  height: 40px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Rose_PNG_Clip_Art_Image.png/512px-Rose_PNG_Clip_Art_Image.png');
+  background-size: cover;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+/* Generate multiple roses dynamically */
+@keyframes drift {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(30px); }
+  100% { transform: translateX(0); }
+}
+
+.rose:nth-child(odd) {
+  animation-duration: 6s;
+  animation-delay: 1s;
+}
+
+.rose:nth-child(even) {
+  animation-duration: 8s;
+  animation-delay: 2s;
+}
