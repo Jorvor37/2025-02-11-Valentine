@@ -18,3 +18,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setInterval(createRose, 500);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const noBtn = document.querySelector("button:nth-of-type(2)");
+
+    noBtn.addEventListener("mouseover", function () {
+        const maxX = window.innerWidth - noBtn.offsetWidth;
+        const maxY = window.innerHeight - noBtn.offsetHeight;
+
+        const randomX = Math.floor(Math.random() * maxX);
+        const randomY = Math.floor(Math.random() * maxY);
+
+        noBtn.style.position = "absolute";
+        noBtn.style.left = `${randomX}px`;
+        noBtn.style.top = `${randomY}px`;
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const yesBtn = document.getElementById("yesBtn");
+
+    yesBtn.addEventListener("click", function () {
+        window.location.href = "yes.html";
+    });
+});

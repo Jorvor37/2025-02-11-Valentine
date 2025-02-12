@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yay! My Valentine! ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #ffebef;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        h1 {
+            color: #d6336c;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.5em;
+            color: #555;
+        }
+        .heart {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_symbol.svg');
+            background-size: cover;
+            animation: float 4s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            50% { transform: translateY(-200px) scale(1.2); opacity: 0.8; }
+            100% { transform: translateY(-400px) scale(0.8); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Yay! You are my Valentine! ❤️</h1>
+    <p>I'm so happy! You made my day special! 💖</p>
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 4000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
